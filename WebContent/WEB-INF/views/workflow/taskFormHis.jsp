@@ -33,7 +33,8 @@
 				 		请假天数:<input type="text" name="days" value="1" disabled="true" style="width: 200px;"/><br/>
 				 		请假原因:<input type="text" name="content" value="事假" disabled="true" style="width: 800px;"/><br/>
 				 		请假备注:<textarea name="remark" disabled="true" cols="30" rows="2">出国旅游</textarea><br/>
-				 		<input type="button" name="button" value="返回" class="button_ok" onclick="javascript:history.go(-1);"/>
+				 		<input type="submit" name="outcome" value="提交" class="button_ok"/>
+				 			<input type="submit" name="outcome" value="驳回" class="button_ok"/>
 			 		</div>
 		  	</td>
 		  </tr>
