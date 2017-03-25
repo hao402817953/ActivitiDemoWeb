@@ -8,7 +8,6 @@ import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Task;
 
-import com.activity.ssh.domain.LeaveBill;
 import com.activity.ssh.web.form.WorkflowBean;
 
 public interface IWorkflowService {
@@ -79,36 +78,6 @@ public interface IWorkflowService {
 	 * @return
 	 */
 	public List<Task> findTaskList(String name);
-	/**
-	 *使用任务ID,获取当前任务节点中对应的Form key中的连接的值
-	 * @title findTaskFormKeyByTaskId
-	 * @description TODO
-	 * @author Administrator
-	 * @create_date 2017年3月1日
-	 * @param taskId
-	 * @return
-	 */
-	public String findTaskFormKeyByTaskId(String taskId);
-	/**
-	 * 使用任务ID,查找请假单ID,从而获取请假单信息
-	 * @title findLeaveBillByTaskId
-	 * @description TODO
-	 * @author Administrator
-	 * @create_date 2017年3月1日
-	 * @param taskId
-	 * @return
-	 */
-	public LeaveBill findLeaveBillByTaskId(String taskId);
-	/**
-	 * 二：已知任务ID，查询ProcessDefinitionEntiy对象，从而获取当前任务完成之后的连线名称，并放置到List<String>集合中
-	 * @title findOutComeListByTaskId
-	 * @description TODO
-	 * @author Administrator
-	 * @create_date 2017年3月1日
-	 * @param taskId
-	 * @return
-	 */
-	public List<String> findOutComeListByTaskId(String taskId);
 
 	
 

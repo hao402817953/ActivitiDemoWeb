@@ -3,7 +3,6 @@ package com.activity.ssh.web.action;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -14,7 +13,6 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Task;
 import org.apache.struts2.ServletActionContext;
 
-import com.activity.ssh.domain.LeaveBill;
 import com.activity.ssh.service.ILeaveBillService;
 import com.activity.ssh.service.IWorkflowService;
 import com.activity.ssh.utils.SessionContext;
@@ -23,8 +21,6 @@ import com.activity.ssh.web.form.WorkflowBean;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-
-import freemarker.core.Comment;
 
 @SuppressWarnings("serial")
 public class WorkflowAction extends ActionSupport implements ModelDriven<WorkflowBean> {
@@ -134,29 +130,11 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 	 * 打开任务表单
 	 */
 	public String viewTaskForm(){
-		//任务ID
-		String taskId=workflowBean.getTaskId();
-		String url=workflowService.findTaskFormKeyByTaskId(taskId);
-		url +="?taskId="+taskId;
-		ValueContext.putValueContext("url", url);
-		
 		return "viewTaskForm";
 	}
+	
 	// 准备表单数据
 	public String audit(){
-		//获取任务ID
-		String taskId = workflowBean.getTaskId();
-		/**一：使用任务ID，查找请假单ID，从而获取请假单信息*/
-		LeaveBill leaveBill = workflowService.findLeaveBillByTaskId(taskId);
-		ValueContext.putValueStack(leaveBill);
-		/**二：已知任务ID，查询ProcessDefinitionEntiy对象，从而获取当前任务完成之后的连线名称，并放置到List<String>集合中*/
-		List<String> outcomeList = workflowService.findOutComeListByTaskId(taskId);
-		ValueContext.putValueContext("outcomeList", outcomeList);
-		/**三,*/
-		List<Comment> commentList=null;
-		ValueContext.putValueContext("commentList", commentList);
-		
-		
 		return "taskForm";
 	}
 	
@@ -164,17 +142,6 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 	 * 提交任务
 	 */
 	public String submitTask(){
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		return "listTask";
 	}
 	
